@@ -13,7 +13,33 @@ const Container = styled.div`
 const List = styled.ul`
   list-style: none;
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+  cursor: pointer;
+  text-align: center;
+  li {
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border: 1px solid;
+    padding: 3px;
+    margin: 3px;
+  }
 `
+
+const renderFavorites = (favorites = []) => {
+  return (
+    favorites.map(({ name, image, id}, index) => {
+      return (
+        <li key={id}>
+          <img src={image} alt={name} />
+          <span>{name}</span>
+        </li>
+      )
+    })
+  )
+}
 
 const EasyFavorites = () => {
   return (
@@ -23,10 +49,7 @@ const EasyFavorites = () => {
           <span>Easy Favorites:</span>
         </div>
         <List>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
+          {renderFavorites()}
         </List>
       </Container>
     </>
