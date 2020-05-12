@@ -1,4 +1,4 @@
-# React Redux vs Context API presentation
+# React Redux vs Context API experiment
 
 # Up and running
 $ yarn
