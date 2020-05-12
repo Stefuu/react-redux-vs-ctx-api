@@ -19,8 +19,9 @@ const App = () => {
             <Link to="/Favorites">Favorites</Link>
           </li>
         </ul>
-
-        <Routes />
+        <FavoritesProvider value={}>
+          <Routes />
+        </FavoritesProvider>
       </div>
     </Router>
   );
