@@ -9,9 +9,9 @@ export default ({ name }) => {
 
   useEffect(() => {
     const apiResult = data // Finge comigo aqui
-    setProducts(apiResult) 
+    setProducts(apiResult)
   }, [])
-  
+
   return (
     <>
       <h1>Catalog</h1>
@@ -20,5 +20,5 @@ export default ({ name }) => {
       </List>
       <EasyFavorites />
     </>
-  ) 
+  )
 }
