@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import FavoritesContext from '../../Contexts/Favorites'
+import { FavoritesContext } from '../../Contexts/Favorites'
 
 export default ({ name }) => {
   const favorites = useContext(FavoritesContext)
