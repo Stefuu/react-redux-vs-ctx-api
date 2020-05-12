@@ -2,12 +2,19 @@ import React, { useContext } from 'react';
 import { FavoritesContext } from '../../Contexts/FavoritesContext'
 import styled from 'styled-components'
 import List from './styled/List'
+import { connect } from 'react-redux';
 
-export default ({ name }) => {
-  const { state = [], dispatch } = useContext(FavoritesContext)
+const mapDispatchToProps = (dispatch) => ({
+  removeFavorite: action => dispatch(action)
+})
 
+const mapStateToProps = (state) => ({
+  favorites: state
+})
+
+const Favorites = ({ favorites, removeFavorite }) => {
   const RenderFavorites = () => {
-    return state.map((item, index) => {
+    return favorites.map((item) => {
       const { name, image } = item
 
       const removeAction = { 
@@ -19,7 +26,7 @@ export default ({ name }) => {
         <li key={name}>
           <img src={image} alt={name} />
           <span>{name}</span>
-          <button onClick={() => dispatch(removeAction)}>Remove</button>
+          <button onClick={() => removeFavorite(removeAction)}>Remove</button>
         </li>
       )
     })
@@ -32,3 +39,5 @@ export default ({ name }) => {
     </> 
   )
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites)

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import {
   BrowserRouter as Router,
   Link
 } from "react-router-dom"
 import Routes from './Routes'
 import './style.css'
-import FavoritesStore from './Contexts/FavoritesContext'
+import rootReducer from './Reducers'
+
+const store = createStore(rootReducer, [])
 
 const App = () => {
     return  (
@@ -20,9 +24,9 @@ const App = () => {
             <Link to="/Favorites">Favorites</Link>
           </li>
         </ul>
-        <FavoritesStore>
+        <Provider store={store}>
           <Routes />
-        </FavoritesStore>
+        </Provider>
       </div>
     </Router>
   );

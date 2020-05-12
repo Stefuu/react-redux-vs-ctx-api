@@ -8,6 +8,6 @@ export default (state, action) =>  {
     case 'REMOVE_FAVORITE':
       return state.filter(item => item.id !== action.payload.id)
     default:
-      throw new Error('Erro no reducer, taca uns console lá...zuera, use debuggers');
+      throw new Error('Action não encontrada no reducer');
   }
 }
