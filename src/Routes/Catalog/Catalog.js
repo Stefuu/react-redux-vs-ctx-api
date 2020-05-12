@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components'
 import EasyFavorites from './components/EasyFavorites'
 import data from '../../__fixtures__/data'
-import { FavoritesContext } from '../../Contexts/Favorites'
+import { FavoritesContext } from '../../Contexts/FavoritesContext'
 import List from './styled/List'
 
-const renderProducts = (products = [], handleClick) => {
+const RenderProducts = (products = [], handleClick) => {
   const { dispatch } = useContext(FavoritesContext)
 
   return products.map((item, index) => {
@@ -37,7 +37,7 @@ export default ({ name }) => {
   return (
     <>
       <h1>Catalog</h1>
-      <List>{renderProducts(products)}</List>
+      <List>{RenderProducts(products)}</List>
       <EasyFavorites />
     </>
   ) 

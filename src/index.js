@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import Routes from './Routes'
 import './style.css'
-import FavoritesStore from './Contexts/Favorites'
+import FavoritesStore from './Contexts/FavoritesContext'
 
 const App = () => {
     return  (
