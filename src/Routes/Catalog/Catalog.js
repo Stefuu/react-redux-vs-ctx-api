@@ -1,30 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components'
 import EasyFavorites from './components/EasyFavorites'
 import data from '../../__fixtures__/data'
-import { FavoritesContext } from '../../Contexts/FavoritesContext'
 import List from './styled/List'
-
-const RenderProducts = (products = [], handleClick) => {
-  const { dispatch } = useContext(FavoritesContext)
-
-  return products.map((item, index) => {
-    const { image, name } = item
-
-    const addAction = {
-      type: 'ADD_FAVORITE',
-      payload: item
-    }
-
-    return (
-      <li key={name}>
-        <img src={image} alt={name} />
-        <span>{name}</span>
-        <div><button onClick={() => dispatch(addAction)}>Add</button></div>
-      </ li>
-    )
-  })
-}
+import RenderProducts from './components/RenderProducts'
 
 export default ({ name }) => {
   const [products, setProducts] = useState([])
@@ -37,7 +15,9 @@ export default ({ name }) => {
   return (
     <>
       <h1>Catalog</h1>
-      <List>{RenderProducts(products)}</List>
+      <List>
+        <RenderProducts products={products} />
+      </List>
       <EasyFavorites />
     </>
   ) 

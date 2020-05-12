@@ -9,6 +9,7 @@ import './style.css'
 import FavoritesStore from './Contexts/FavoritesContext'
 
 const App = () => {
+  console.log('Versão CTX com useState')
     return  (
     <Router>
       <div>

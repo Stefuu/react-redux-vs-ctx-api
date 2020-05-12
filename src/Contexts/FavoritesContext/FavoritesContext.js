@@ -1,6 +1,5 @@
   
-import React, { useReducer, createContext } from 'react'
-import reducer from './reducer'
+import React, { useState, createContext } from 'react'
 
 // O contexto é responsável por permitir que componentes se inscrevam nele para acessarem seu value
 export const FavoritesContext = createContext()
@@ -9,10 +8,10 @@ export const FavoritesContext = createContext()
 const FavoritesStore = ({children}) => {
   const initialState = []
 
-  const [state, dispatch] = useReducer(reducer, initialState)
-  
+  const [favorites, setFavorites] = useState(initialState)
+
   return (
-      <FavoritesContext.Provider value={{state, dispatch}}>
+      <FavoritesContext.Provider value={[favorites, setFavorites]}>
           {children}
       </FavoritesContext.Provider>
   )
