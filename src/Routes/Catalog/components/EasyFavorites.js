@@ -1,9 +1,7 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
-import { FavoritesContext } from '../../../Contexts/FavoritesContext'
+import React from 'react'
 import Container from './styled/Container'
 import List from './styled/List'
-import RenderFavorites from './RenderFavorites'
+import RenderEasyFavorites from './RenderEasyFavorites'
 
 const EasyFavorites = () => {
   return (
@@ -13,7 +11,7 @@ const EasyFavorites = () => {
           <b>Easy Favorites:</b>
         </div>
         <List>
-          <RenderFavorites />
+          <RenderEasyFavorites />
         </List>
       </Container>
     </>

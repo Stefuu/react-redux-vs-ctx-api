@@ -1,5 +1,4 @@
 import React from 'react'
-import List from './styled/List'
 import { connect } from 'react-redux'
 
 const mapDispatchToProps = (dispatch) => ({
@@ -10,9 +9,9 @@ const mapStateToProps = (state) => ({
   favorites: state
 })
 
-const Favorites = ({ favorites, removeFavorite }) => {
-  const RenderFavorites = () => {
-    return favorites.map((item) => {
+const RenderEasyFavorites = ({ favorites, removeFavorite }) => {
+  return (
+    favorites.map((item) => {
       const { name, image } = item
 
       const removeAction = {
@@ -22,20 +21,13 @@ const Favorites = ({ favorites, removeFavorite }) => {
 
       return (
         <li key={name}>
-          <img src={image} alt={name} />
-          <span>{name}</span>
           <button onClick={() => removeFavorite(removeAction)}>Remove</button>
+          <img src={image} alt={name} width='90' height='90' />
+          <span>{name}</span>
         </li>
       )
     })
-  }
-
-  return (
-    <>
-      <h1>Favorites</h1>
-      <List>{RenderFavorites()}</List>
-    </>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
+export default connect(mapStateToProps, mapDispatchToProps)(RenderEasyFavorites)

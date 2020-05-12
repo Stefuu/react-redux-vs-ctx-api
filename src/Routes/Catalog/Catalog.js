@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
 import EasyFavorites from './components/EasyFavorites'
 import data from '../../__fixtures__/data'
 import List from './styled/List'
@@ -10,19 +9,18 @@ export default () => {
 
   useEffect(() => {
     const apiResult = data // Finge comigo aqui
-    setProducts(apiResult) 
+    setProducts(apiResult)
   }, [])
 
   return (
     <>
       <h1>Catalog</h1>
       <List>
-        <RenderProducts 
-          products={products} 
+        <RenderProducts
+          products={products}
         />
-        </List>
+      </List>
       <EasyFavorites />
     </>
-  ) 
+  )
 }
-

@@ -1,4 +1,4 @@
-  
+
 import React, { useReducer, createContext } from 'react'
 import reducer from './reducer'
 
@@ -6,15 +6,15 @@ import reducer from './reducer'
 export const FavoritesContext = createContext()
 
 // O componente HOC FavoritesStore é responsável por manter e atualizar o estado do contexto
-const FavoritesStore = ({children}) => {
+const FavoritesStore = ({ children }) => {
   const initialState = []
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  
+
   return (
-      <FavoritesContext.Provider value={{state, dispatch}}>
-          {children}
-      </FavoritesContext.Provider>
+    <FavoritesContext.Provider value={{ state, dispatch }}>
+      {children}
+    </FavoritesContext.Provider>
   )
 }
 

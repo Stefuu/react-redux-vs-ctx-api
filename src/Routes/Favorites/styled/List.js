@@ -11,6 +11,6 @@ const List = styled.ul`
     border: 1px solid;
     padding: 10px;
   }
-` 
+`
 
 export default List
