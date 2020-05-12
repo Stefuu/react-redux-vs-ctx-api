@@ -5,7 +5,7 @@ $ yarn
 
 $ yarn start
 
-# Branches
+# Branchs
 
 ### Version with Context API and useState
 $ git checkout ctx-api-simples
