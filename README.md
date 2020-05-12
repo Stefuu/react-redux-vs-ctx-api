@@ -7,13 +7,13 @@ $ yarn start
 
 # Branches
 
-## Context API with useState
+### Version with Context API and useState
 $ git checkout ctx-api-simples
 
-## Context API with useReducer
+### Version with Context API and useReducer
 $ git checkout ctx-api
 
-## Context API with Redux
+### Version with Redux
 $ git checkout react-redux
 
 # Slides
