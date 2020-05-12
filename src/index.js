@@ -13,6 +13,7 @@ import rootReducer from './Reducers'
 const store = createStore(rootReducer, [])
 
 const App = () => {
+    console.log('Versão Redux')
     return  (
     <Router>
       <div>
