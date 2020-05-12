@@ -1,3 +1,8 @@
-# react-7r6tnf
+# React Redux vs Context API presentation
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-7r6tnf)
+# Up and running
+$ yarn
+$ yarn start
+
+# Slides
+https://docs.google.com/presentation/d/1xknMhL8kJDrwUa-jSrTvW3ZcEBAaalFBDQn-gJUb6GY/edit?usp=sharing
