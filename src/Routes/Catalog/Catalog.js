@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react'
 import EasyFavorites from './components/EasyFavorites'
 import data from '../../__fixtures__/data'
 import List from './styled/List'
@@ -9,7 +9,7 @@ export default ({ name }) => {
 
   useEffect(() => {
     const apiResult = data // Finge comigo aqui
-    setProducts(apiResult) 
+    setProducts(apiResult)
   }, [])
 
   return (
@@ -20,5 +20,5 @@ export default ({ name }) => {
       </List>
       <EasyFavorites />
     </>
-  ) 
+  )
 }

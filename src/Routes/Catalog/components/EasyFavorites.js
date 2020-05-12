@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Container from './styled/Container'
 import List from './styled/List'
 import RenderEasyFavorites from './RenderEasyFavorites'
