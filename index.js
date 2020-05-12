@@ -3,9 +3,10 @@ import { render } from 'react-dom'
 import {
   BrowserRouter as Router,
   Link
-} from "react-router-dom";
-import Routes from './Routes';
-import './style.css';
+} from "react-router-dom"
+import Routes from './Routes'
+import './style.css'
+import FavoritesStore from './Contexts/Favorites'
 
 const App = () => {
     return  (
@@ -19,9 +20,9 @@ const App = () => {
             <Link to="/Favorites">Favorites</Link>
           </li>
         </ul>
-        <FavoritesProvider value={}>
+        <FavoritesStore>
           <Routes />
-        </FavoritesProvider>
+        </FavoritesStore>
       </div>
     </Router>
   );
