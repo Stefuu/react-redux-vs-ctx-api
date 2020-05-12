@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import EasyFavorites from './components/EasyFavorites'
+import data from '../__fixtures__/data.json'
+
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 3px;
+`
 
 const renderProducts = (products = []) => {
   return products.map(({ image, name }, index) => (
@@ -10,18 +17,22 @@ const renderProducts = (products = []) => {
   ))
 }
 
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 3px;
-`
+export default ({ name }) => {
+  const [products, setProducts] = useState([])
+  
+  useEffect(() => {
+    const apiResult = data // Finge comigo aqui
+    setProducts(apiResult) 
+  }, [])
 
-export default ({ name }) => (
+  return (
   <>
     <h1>Catalog</h1>
     <List>
       {renderProducts()}
     </List>
+    a
     <EasyFavorites />
   </>
-)
+    ) 
+}
