@@ -1,67 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components'
 import EasyFavorites from './components/EasyFavorites'
 import data from '../../__fixtures__/data'
-
-const List = styled.ul`
-  list-style: none;
-  margin: 0 0 300px 0;
-  padding: 3px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-  li {
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    width: 33%;
-    text-align: center;
-    img {
-      width: 90px;
-    }
-    span {
-      max-width: 90px; 
-    }
-    :hover {
-      opacity: 0.8;
-
-    }
-  }
-`
+import { FavoritesContext } from '../../Contexts/Favorites'
+import List from './styled/List'
 
 const renderProducts = (products = [], handleClick) => {
-  return products.map(({ image, name }, index) => (
-    <li onClick={handleClick}>
-      <img src={image} alt={name} />
-      <span>{name}</span>
-    </ li>
-  ))
+  const { dispatch } = useContext(FavoritesContext)
+
+  return products.map((item, index) => {
+    const { image, name } = item
+
+    const addAction = {
+      type: 'ADD_FAVORITE',
+      payload: item
+    }
+
+    return (
+      <li key={name}>
+        <img src={image} alt={name} />
+        <span>{name}</span>
+        <div><button onClick={() => dispatch(addAction)}>Add</button></div>
+      </ li>
+    )
+  })
 }
 
 export default ({ name }) => {
   const [products, setProducts] = useState([])
-  
+
   useEffect(() => {
     const apiResult = data // Finge comigo aqui
     setProducts(apiResult) 
   }, [])
 
-  const handleClick = () => {
-    
-  }
-
   return (
     <>
       <h1>Catalog</h1>
-      <List>
-        {renderProducts(products,)}
-      </List>
+      <List>{renderProducts(products)}</List>
       <EasyFavorites />
     </>
   ) 

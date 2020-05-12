@@ -1,13 +1,13 @@
 export default (state, action) =>  {
   switch (action.type) {
     case 'ADD_FAVORITE':
-      return {
+      return [
         ...state,
         ...action.payload
-      }
+      ]
     case 'REMOVE_FAVORITE':
       return state.filter(item => item.id !== action.payload.id)
     default:
-      throw new Error();
+      throw new Error('Erro no reducer, taca uns console lá...zuera, use debuggers');
   }
 }
